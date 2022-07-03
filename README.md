@@ -1,10 +1,7 @@
 # REST Client -- simple DSL for accessing HTTP and REST resources
 
 [![Gem Downloads](https://img.shields.io/gem/dt/rest-client.svg)](https://rubygems.org/gems/rest-client)
-[![Build Status](https://travis-ci.org/rest-client/rest-client.svg?branch=master)](https://travis-ci.org/rest-client/rest-client)
-[![Code Climate](https://codeclimate.com/github/rest-client/rest-client.svg)](https://codeclimate.com/github/rest-client/rest-client)
-[![Inline docs](http://inch-ci.org/github/rest-client/rest-client.svg?branch=master)](http://www.rubydoc.info/github/rest-client/rest-client/master)
-[![Join the chat at https://gitter.im/ruby-rest-client/community](https://badges.gitter.im/ruby-rest-client/community.svg)](https://gitter.im/ruby-rest-client/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://github.com/jbox-web/rest-client/actions/workflows/ci.yml/badge.svg)](https://github.com/jbox-web/rest-client/actions/workflows/ci.yml)
 
 A simple HTTP and REST client for Ruby, inspired by the Sinatra's microframework style
 of specifying actions: get, put, post, delete.
