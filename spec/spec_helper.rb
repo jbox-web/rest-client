@@ -1,8 +1,10 @@
+# require test gems
 require 'webmock/rspec'
-require 'rest-client'
 
-require_relative './helpers'
+# require test helpers
+require_relative 'helpers'
 
+# configure RSpec
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   config.raise_errors_for_deprecations!
@@ -24,6 +26,9 @@ RSpec.configure do |config|
     mocks.yield_receiver_to_any_instance_implementation_blocks = true
   end
 end
+
+# load our own gem to test
+require 'rest-client'
 
 # always run with ruby warnings enabled (see above)
 $VERBOSE = true
