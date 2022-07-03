@@ -16,8 +16,6 @@ jobs:
           - '3.0'
           - '2.7'
           - head
-          - jruby
-          - jruby-head
 
     steps:
       - name: Checkout
