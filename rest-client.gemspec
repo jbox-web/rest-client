@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+# frozen_string_literal: true
 
 require File.expand_path('../lib/restclient/version', __FILE__)
 
@@ -6,15 +6,21 @@ Gem::Specification.new do |s|
   s.name             = 'rest-client'
   s.version          = RestClient::VERSION
   s.authors          = ['REST Client Team']
-  s.description      = 'A simple HTTP and REST client for Ruby, inspired by the Sinatra microframework style of specifying actions: get, put, post, delete.'
-  s.license          = 'MIT'
   s.email            = 'discuss@rest-client.groups.io'
-  s.executables      = ['restclient']
-  s.extra_rdoc_files = ['README.md', 'history.md']
-  s.files            = `git ls-files -z`.split("\0")
-  s.test_files       = `git ls-files -z spec/`.split("\0")
   s.homepage         = 'https://github.com/rest-client/rest-client'
   s.summary          = 'Simple HTTP and REST client for Ruby, inspired by microframework syntax for specifying actions.'
+  s.description      = 'A simple HTTP and REST client for Ruby, inspired by the Sinatra microframework style of specifying actions: get, put, post, delete.'
+  s.license          = 'MIT'
+
+  s.required_ruby_version = '>= 2.0.0'
+
+  s.files      = `git ls-files -z`.split("\0")
+  s.test_files = `git ls-files -z spec/`.split("\0")
+
+  s.bindir      = 'exe'
+  s.executables = ['restclient']
+
+  s.extra_rdoc_files = ['README.md', 'history.md']
 
   s.add_development_dependency('webmock', '~> 2.0')
   s.add_development_dependency('rspec', '~> 3.0')
@@ -27,6 +33,4 @@ Gem::Specification.new do |s|
   s.add_dependency('http-cookie', '>= 1.0.2', '< 2.0')
   s.add_dependency('mime-types', '>= 1.16', '< 4.0')
   s.add_dependency('netrc', '~> 0.8')
-
-  s.required_ruby_version = '>= 2.0.0'
 end
