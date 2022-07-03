@@ -505,9 +505,9 @@ describe RestClient::Request, :include_helpers do
 
   it "class method execute wraps constructor" do
     req = double("rest request")
-    expect(RestClient::Request).to receive(:new).with(1 => 2).and_return(req)
+    expect(RestClient::Request).to receive(:new).with({1 => 2}).and_return(req)
     expect(req).to receive(:execute)
-    RestClient::Request.execute(1 => 2)
+    RestClient::Request.execute({1 => 2})
   end
 
   describe "exception" do
