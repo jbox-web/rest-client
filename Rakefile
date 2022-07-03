@@ -1,25 +1,12 @@
 # load `rake build/install/release tasks'
 require 'bundler/setup'
-require_relative './lib/restclient/version'
+require_relative 'lib/restclient/version'
 
 namespace :ruby do
   Bundler::GemHelper.install_tasks(:name => 'rest-client')
 end
 
 require "rspec/core/rake_task"
-
-desc "Run all specs"
-RSpec::Core::RakeTask.new('spec')
-
-desc "Run unit specs"
-RSpec::Core::RakeTask.new('spec:unit') do |t|
-  t.pattern = 'spec/unit/*_spec.rb'
-end
-
-desc "Run integration specs"
-RSpec::Core::RakeTask.new('spec:integration') do |t|
-  t.pattern = 'spec/integration/*_spec.rb'
-end
 
 desc "Print specdocs"
 RSpec::Core::RakeTask.new(:doc) do |t|
@@ -52,12 +39,6 @@ end
 task :default do
   sh 'rake -T'
 end
-
-def alias_task(alias_task, original)
-  desc "Alias for rake #{original}"
-  task alias_task, Rake.application[original].arg_names => original
-end
-alias_task(:test, :spec)
 
 ############################
 
