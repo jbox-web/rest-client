@@ -5,6 +5,7 @@ require File.expand_path('../lib/restclient/version', __FILE__)
 Gem::Specification.new do |s|
   s.name        = 'rest-client'
   s.version     = RestClient::VERSION
+  s.platform    = Gem::Platform::RUBY
   s.authors     = ['REST Client Team']
   s.email       = 'discuss@rest-client.groups.io'
   s.homepage    = 'https://github.com/rest-client/rest-client'
