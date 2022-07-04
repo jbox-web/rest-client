@@ -82,7 +82,7 @@ class RestClient::Windows::RootCerts
   #   __in LPCSTR szSubsystemProtocol
   #   );
   ffi_lib :crypt32
-  attach_function :CertOpenSystemStoreA, [:pointer, :string], :handle
+  attach_function :CertOpenSystemStoreA, %i[pointer string], :handle
 
   # PCCERT_CONTEXT
   # WINAPI
@@ -91,7 +91,7 @@ class RestClient::Windows::RootCerts
   #   __in_opt PCCERT_CONTEXT pPrevCertContext
   #   );
   ffi_lib :crypt32
-  attach_function :CertEnumCertificatesInStore, [:handle, :pointer], :pointer
+  attach_function :CertEnumCertificatesInStore, %i[handle pointer], :pointer
 
   # BOOL
   # WINAPI
@@ -100,5 +100,5 @@ class RestClient::Windows::RootCerts
   #   __in DWORD dwFlags
   #   );
   ffi_lib :crypt32
-  attach_function :CertCloseStore, [:handle, :dword], :bool
+  attach_function :CertCloseStore, %i[handle dword], :bool
 end
