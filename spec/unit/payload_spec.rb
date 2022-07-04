@@ -1,6 +1,6 @@
 # encoding: binary
 
-require_relative '_lib'
+require 'spec_helper'
 
 describe RestClient::Payload, :include_helpers do
   context "Base Payload" do

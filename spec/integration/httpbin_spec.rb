@@ -1,6 +1,6 @@
-require_relative '_lib'
-require 'json'
+require 'spec_helper'
 
+require 'json'
 require 'zlib'
 
 describe RestClient::Request do

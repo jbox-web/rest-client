@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-require_relative '_lib'
+require 'spec_helper'
 require 'base64'
 
 describe RestClient do

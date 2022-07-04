@@ -1,4 +1,4 @@
-require_relative '../_lib'
+require 'spec_helper'
 
 describe 'RestClient::Windows::RootCerts',
          :if => RestClient::Platform.windows? do

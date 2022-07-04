@@ -1,4 +1,4 @@
-require_relative '_lib'
+require 'spec_helper'
 
 describe RestClient do
   describe "API" do
