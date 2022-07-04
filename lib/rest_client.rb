@@ -12,15 +12,9 @@ require 'uri'
 
 require 'http/accept'
 require 'http-cookie'
+require 'mini_mime'
 require 'netrc'
 require 'zeitwerk'
-
-begin
-  # Use mime/types/columnar if available, for reduced memory usage
-  require 'mime/types/columnar'
-rescue LoadError
-  require 'mime/types'
-end
 
 loader = Zeitwerk::Loader.for_gem
 loader.inflector.inflect 'rest-client' => 'RestClient'

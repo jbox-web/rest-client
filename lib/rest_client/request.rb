@@ -859,12 +859,8 @@ module RestClient
         return ext
       end
 
-      types = MIME::Types.type_for(ext)
-      if types.empty?
-        ext
-      else
-        types.first.content_type
-      end
+      type = MiniMime.lookup_by_filename("a.#{ext}")
+      type ? type.content_type : ext
     end
   end
 end
