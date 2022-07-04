@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require File.expand_path('../lib/rest_client/version', __FILE__)
+require_relative 'lib/rest_client/version'
 
 Gem::Specification.new do |s|
   s.name        = 'rest-client'
