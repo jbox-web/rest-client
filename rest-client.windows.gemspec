@@ -39,7 +39,7 @@ Gem::Specification.new do |s|
 
   # ffi is needed for RestClient::Windows::RootCerts
   case RUBY_PLATFORM
-  when /(mingw32|mswin32)/
+  when /(mingw32|mswin32|x64-mingw)/
     # ffi is needed for RestClient::Windows::RootCerts
     s.add_runtime_dependency('ffi', '~> 1.9')
     s.platform = RUBY_PLATFORM
