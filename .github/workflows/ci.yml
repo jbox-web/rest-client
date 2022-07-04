@@ -48,11 +48,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Bundle
-        run: |
-          rm rest-client.gemspec
-          mv rest-client.windows.gemspec rest-client.gemspec
-
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
