@@ -190,11 +190,8 @@ module RestClient
 
       # find and extract/remove "params" key if the value is a Hash/ParamsArray
       headers.delete_if do |key, value|
-        if key.to_s.downcase == 'params' &&
-            (value.is_a?(Hash) || value.is_a?(RestClient::ParamsArray))
-          if url_params
-            raise ArgumentError.new("Multiple 'params' options passed")
-          end
+        if key.to_s.downcase == 'params' && (value.is_a?(Hash) || value.is_a?(RestClient::ParamsArray))
+          raise ArgumentError.new("Multiple 'params' options passed") if url_params
 
           url_params = value
           true
