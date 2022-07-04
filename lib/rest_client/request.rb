@@ -121,7 +121,7 @@ module RestClient
       end
 
       SSLOptionList.each do |key|
-        source_key = ('ssl_' + key).to_sym
+        source_key = ("ssl_#{key}").to_sym
         if args.has_key?(source_key)
           @ssl_opts[key.to_sym] = args.fetch(source_key)
         end
@@ -158,7 +158,7 @@ module RestClient
       @ssl_opts.fetch(:verify_ssl)
     end
     SSLOptionList.each do |key|
-      define_method('ssl_' + key) do
+      define_method("ssl_#{key}") do
         @ssl_opts[key.to_sym]
       end
     end
@@ -208,9 +208,9 @@ module RestClient
         query_string = RestClient::Utils.encode_query_string(url_params)
 
         if url.include?('?')
-          url + '&' + query_string
+          "#{url}&#{query_string}"
         else
-          url + '?' + query_string
+          "#{url}?#{query_string}"
         end
       else
         url
@@ -474,7 +474,7 @@ module RestClient
     # @return [String]
     #
     def normalize_url(url)
-      url = 'http://' + url unless url.match(%r{\A[a-z][a-z0-9+.-]*://}i)
+      url = "http://#{url}" unless url.match(%r{\A[a-z][a-z0-9+.-]*://}i)
       url
     end
 
@@ -534,7 +534,7 @@ module RestClient
       out << "RestClient.#{method} #{redacted_url.inspect}"
       out << payload.short_inspect if payload
       out << processed_headers.to_a.sort.map { |(k, v)| [k.inspect, v.inspect].join("=>") }.join(", ")
-      log << out.join(', ') + "\n"
+      log << "#{out.join(', ')}\n"
     end
 
     # Return a hash of headers whose keys are capitalized strings

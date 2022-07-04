@@ -81,7 +81,7 @@ module RestClient
     def body_truncated(length)
       b = body
       if b.length > length
-        b[0..length] + '...'
+        "#{b[0..length]}..."
       else
         b
       end

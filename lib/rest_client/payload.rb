@@ -132,7 +132,7 @@ module RestClient
       EOL = "\r\n"
 
       def build_stream(params)
-        b = '--' + boundary
+        b = "--#{boundary}"
 
         @stream = Tempfile.new('rest-client.multipart.')
         @stream.binmode
@@ -197,7 +197,7 @@ module RestClient
         s = SecureRandom.base64(12)
         s.tr!('+/', 'AB')
 
-        @boundary = '----RubyFormBoundary' + s
+        @boundary = "----RubyFormBoundary#{s}"
       end
 
       # for Multipart do not escape the keys

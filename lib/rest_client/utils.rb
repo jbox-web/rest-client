@@ -108,7 +108,7 @@ module RestClient
     # @todo remove this method when dropping support for Ruby 2.0
     #
     def self.deprecated_cgi_parse_header(line)
-      parts = _cgi_parseparam(';' + line)
+      parts = _cgi_parseparam(";#{line}")
       key = parts.next
       pdict = {}
 
@@ -223,7 +223,7 @@ module RestClient
     def self.flatten_params(object, uri_escape=false, parent_key=nil)
       unless object.is_a?(Hash) || object.is_a?(ParamsArray) ||
              (parent_key && object.is_a?(Array))
-        raise ArgumentError.new('expected Hash or ParamsArray, got: ' + object.inspect)
+        raise ArgumentError.new("expected Hash or ParamsArray, got: #{object.inspect}")
       end
 
       # transform empty collections into nil, where possible
