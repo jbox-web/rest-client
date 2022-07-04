@@ -5,7 +5,6 @@ require_relative 'lib/rest_client/version'
 Gem::Specification.new do |s|
   s.name        = 'rest-client'
   s.version     = RestClient::VERSION
-  s.platform    = Gem::Platform::RUBY
   s.authors     = ['REST Client Team']
   s.email       = 'discuss@rest-client.groups.io'
   s.homepage    = 'https://github.com/rest-client/rest-client'

@@ -5,7 +5,6 @@ require_relative 'lib/rest_client/version'
 Gem::Specification.new do |s|
   s.name        = 'rest-client'
   s.version     = RestClient::VERSION
-  s.platform    = ENV['BUILD_PLATFORM'] || RUBY_PLATFORM
   s.authors     = ['REST Client Team']
   s.email       = 'discuss@rest-client.groups.io'
   s.homepage    = 'https://github.com/rest-client/rest-client'
@@ -39,5 +38,10 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency('zeitwerk')
 
   # ffi is needed for RestClient::Windows::RootCerts
-  s.add_runtime_dependency('ffi', '~> 1.9')
+  case RUBY_PLATFORM
+  when /(mingw32|mswin32)/
+    # ffi is needed for RestClient::Windows::RootCerts
+    s.add_runtime_dependency('ffi', '~> 1.9')
+    s.platform = RUBY_PLATFORM
+  end
 end
