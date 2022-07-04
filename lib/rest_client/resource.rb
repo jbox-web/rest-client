@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module RestClient
   # A class that can be instantiated for access to a RESTful resource,
   # including authentication.

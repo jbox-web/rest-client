@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module RestClient
 
   # The ParamsArray class is used to represent an ordered list of [key, value]

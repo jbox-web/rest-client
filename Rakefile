@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # load `rake build/install/release tasks'
 require 'bundler/setup'
 require_relative 'lib/restclient/version'

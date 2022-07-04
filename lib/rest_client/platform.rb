@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module RestClient
   module Platform
     # Return true if we are running on a darwin-based Ruby platform. This will

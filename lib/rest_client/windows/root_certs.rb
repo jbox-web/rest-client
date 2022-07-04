@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'ffi'
 
 # Adapted from Puppet, Copyright (c) Puppet Labs Inc,

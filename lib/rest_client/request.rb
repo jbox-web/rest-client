@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module RestClient
   # This class is used internally by RestClient to send the request, but you can also
   # call it directly if you'd like to use a method not supported by the

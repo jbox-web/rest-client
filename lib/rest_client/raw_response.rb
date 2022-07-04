@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module RestClient
   # The response from RestClient on a raw request looks like a string, but is
   # actually one of these.  99% of the time you're making a rest call all you

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module RestClient
 
   # A Response from RestClient, you can access the response body, the code or the headers.
