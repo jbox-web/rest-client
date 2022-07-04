@@ -1,5 +1,12 @@
 # require test gems
+require 'simplecov'
+require 'rspec'
 require 'webmock/rspec'
+
+# start Simplecov
+SimpleCov.start do
+  add_filter 'spec/'
+end
 
 # require test helpers
 require_relative 'helpers'

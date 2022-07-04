@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency('rdoc', '>= 2.4.2', '< 6.0')
   s.add_development_dependency('rspec', '~> 3.0')
   s.add_development_dependency('rubocop', '~> 0.49')
+  s.add_development_dependency('simplecov')
   s.add_development_dependency('webmock', '~> 2.0')
 
   s.add_runtime_dependency('http-accept', '>= 1.7.0', '< 3.0')
