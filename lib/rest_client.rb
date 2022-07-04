@@ -1,15 +1,17 @@
-require 'set'
-require 'rbconfig'
-require 'tempfile'
+require 'cgi'
 require 'net/http'
 require 'openssl'
-require 'stringio'
-require 'uri'
-require 'cgi'
-require 'tempfile'
+require 'rbconfig'
 require 'securerandom'
+require 'set'
 require 'stringio'
+require 'tempfile'
+require 'uri'
+
+require 'http/accept'
+require 'http-cookie'
 require 'netrc'
+require 'zeitwerk'
 
 begin
   # Use mime/types/columnar if available, for reduced memory usage
@@ -17,10 +19,6 @@ begin
 rescue LoadError
   require 'mime/types'
 end
-
-require 'http/accept'
-require 'http-cookie'
-require 'zeitwerk'
 
 loader = Zeitwerk::Loader.for_gem
 loader.inflector.inflect 'rest-client' => 'RestClient'
