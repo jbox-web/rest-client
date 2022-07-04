@@ -1,14 +1,3 @@
-require 'tempfile'
-require 'securerandom'
-require 'stringio'
-
-begin
-  # Use mime/types/columnar if available, for reduced memory usage
-  require 'mime/types/columnar'
-rescue LoadError
-  require 'mime/types'
-end
-
 module RestClient
   module Payload
     extend self

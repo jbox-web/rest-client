@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require File.expand_path('../lib/restclient/version', __FILE__)
+require File.expand_path('../lib/rest_client/version', __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = 'rest-client'
@@ -35,6 +35,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency('http-cookie', '>= 1.0.2', '< 2.0')
   s.add_runtime_dependency('mime-types', '>= 1.16', '< 4.0')
   s.add_runtime_dependency('netrc', '~> 0.8')
+  s.add_runtime_dependency('zeitwerk')
 
   # ffi is needed for RestClient::Windows::RootCerts
   s.add_runtime_dependency('ffi', '~> 1.9')

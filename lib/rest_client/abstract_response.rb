@@ -1,6 +1,3 @@
-require 'cgi'
-require 'http-cookie'
-
 module RestClient
 
   module AbstractResponse

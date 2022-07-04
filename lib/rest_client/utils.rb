@@ -1,5 +1,3 @@
-require 'http/accept'
-
 module RestClient
   # Various utility methods
   module Utils
