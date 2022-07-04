@@ -31,6 +31,7 @@ module RestClient
       unless params.is_a?(Hash)
         raise ArgumentError.new("Must pass Hash, not #{params.inspect}")
       end
+
       _has_file?(params)
     end
 

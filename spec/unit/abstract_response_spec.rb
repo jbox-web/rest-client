@@ -34,12 +34,12 @@ describe RestClient::AbstractResponse, :include_helpers do
 
   describe '.beautify_headers' do
     it "beautifies the headers by turning the keys to symbols" do
-      h = RestClient::AbstractResponse.beautify_headers('content-type' => [ 'x' ])
+      h = RestClient::AbstractResponse.beautify_headers('content-type' => ['x'])
       expect(h.keys.first).to eq :content_type
     end
 
     it "beautifies the headers by turning the values to strings instead of one-element arrays" do
-      h = RestClient::AbstractResponse.beautify_headers('x' => [ 'text/html' ] )
+      h = RestClient::AbstractResponse.beautify_headers('x' => ['text/html'] )
       expect(h.values.first).to eq 'text/html'
     end
 
@@ -57,7 +57,7 @@ describe RestClient::AbstractResponse, :include_helpers do
   end
 
   it "fetches the headers" do
-    expect(@net_http_res).to receive(:to_hash).and_return('content-type' => [ 'text/html' ])
+    expect(@net_http_res).to receive(:to_hash).and_return('content-type' => ['text/html'])
     expect(@response.headers).to eq({ :content_type => 'text/html' })
   end
 

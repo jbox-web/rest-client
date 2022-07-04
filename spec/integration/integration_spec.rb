@@ -30,7 +30,7 @@ describe RestClient do
       body = "λ".force_encoding('ASCII-8BIT')
       stub_request(:get, "www.example.com").to_return(
         :body => body, :status => 200, :headers => {
-          'Content-Type' => 'text/plain; charset=UTF-8'
+          'Content-Type' => 'text/plain; charset=UTF-8',
       })
       response = RestClient.get "www.example.com"
       expect(response.encoding).to eq Encoding::UTF_8
@@ -41,7 +41,7 @@ describe RestClient do
       body = "\xff".force_encoding('ASCII-8BIT')
       stub_request(:get, "www.example.com").to_return(
         :body => body, :status => 200, :headers => {
-          'Content-Type' => 'text/plain; charset=windows-1252'
+          'Content-Type' => 'text/plain; charset=windows-1252',
       })
       response = RestClient.get "www.example.com"
       expect(response.encoding).to eq Encoding::WINDOWS_1252
@@ -53,7 +53,7 @@ describe RestClient do
       body = "\xfe".force_encoding('ASCII-8BIT')
       stub_request(:get, "www.example.com").to_return(
         :body => body, :status => 200, :headers => {
-          'Content-Type' => 'application/octet-stream; charset=binary'
+          'Content-Type' => 'application/octet-stream; charset=binary',
       })
       response = RestClient.get "www.example.com"
       expect(response.encoding).to eq Encoding::BINARY
@@ -71,7 +71,7 @@ describe RestClient do
 
       stub_request(:get, 'www.example.com').to_return(
         :body => body, :status => 200, :headers => {
-          'Content-Type' => 'text/plain; charset=EUC-JP'
+          'Content-Type' => 'text/plain; charset=EUC-JP',
       })
       response = RestClient.get 'www.example.com'
       expect(response.encoding).to eq Encoding::EUC_JP
@@ -83,7 +83,7 @@ describe RestClient do
     it 'defaults to the default encoding' do
       stub_request(:get, 'www.example.com').to_return(
         body: 'abc', status: 200, headers: {
-          'Content-Type' => 'text/plain'
+          'Content-Type' => 'text/plain',
         })
 
       response = RestClient.get 'www.example.com'
@@ -94,7 +94,7 @@ describe RestClient do
     it 'handles invalid encoding' do
       stub_request(:get, 'www.example.com').to_return(
         body: 'abc', status: 200, headers: {
-          'Content-Type' => 'text; charset=plain'
+          'Content-Type' => 'text; charset=plain',
         })
 
       response = RestClient.get 'www.example.com'
@@ -107,7 +107,7 @@ describe RestClient do
 
       stub_request(:get, 'www.example.com').to_return(
         body: gif, status: 200, headers: {
-          'Content-Type' => 'image/gif'
+          'Content-Type' => 'image/gif',
         })
 
       response = RestClient.get 'www.example.com'

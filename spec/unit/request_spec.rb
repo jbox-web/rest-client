@@ -202,7 +202,7 @@ describe RestClient::Request, :include_helpers do
     expect(@request).to receive(:default_headers).and_return({'Foo' => 'bar'})
     expect(@request.make_headers({})).to eq({
       'Foo' => 'bar',
-      'Cookie' => "test=#{cookie}"
+      'Cookie' => "test=#{cookie}",
     })
   end
 
@@ -1219,11 +1219,11 @@ describe RestClient::Request, :include_helpers do
 
     it 'should handle complex nested URL params per Rack / Rails conventions' do
       expect(@request.process_url_params('https://example.com/', params: {
-        foo: [1,2,3],
+        foo: [1, 2, 3],
         null: nil,
         falsy: false,
         math: '2+2=4',
-        nested: {'key + escaped' => 'value + escaped', other: [], arr: [1,2]},
+        nested: {'key + escaped' => 'value + escaped', other: [], arr: [1, 2]},
       })).to eq 'https://example.com/?foo[]=1&foo[]=2&foo[]=3&null&falsy=false&math=2%2B2%3D4' \
                    '&nested[key+%2B+escaped]=value+%2B+escaped&nested[other]' \
                    '&nested[arr][]=1&nested[arr][]=2'

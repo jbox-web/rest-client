@@ -87,7 +87,7 @@ describe RestClient::Utils do
         {foo: [1, 2, 3]} => 'foo[]=1&foo[]=2&foo[]=3',
         {foo: %w{a b c}, bar: [1, 2, 3]} => 'foo[]=a&foo[]=b&foo[]=c&bar[]=1&bar[]=2&bar[]=3',
         {foo: ['one two', 3]} => 'foo[]=one+two&foo[]=3',
-        {'a+b' => [1,2,3]} => 'a%2Bb[]=1&a%2Bb[]=2&a%2Bb[]=3',
+        {'a+b' => [1, 2, 3]} => 'a%2Bb[]=1&a%2Bb[]=2&a%2Bb[]=3',
       }.each_pair do |input, expected|
         expect(RestClient::Utils.encode_query_string(input)).to eq expected
       end

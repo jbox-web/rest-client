@@ -57,11 +57,13 @@ module RestClient
         if pair.length != 1
           raise ArgumentError.new("Bad # of fields for pair: #{pair.inspect}")
         end
+
         pair.to_a.fetch(0)
       when Array
         if pair.length > 2
           raise ArgumentError.new("Bad # of fields for pair: #{pair.inspect}")
         end
+
         [pair.fetch(0), pair[1]]
       else
         # recurse, converting any non-array to an array

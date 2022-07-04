@@ -195,6 +195,7 @@ module RestClient
           if url_params
             raise ArgumentError.new("Multiple 'params' options passed")
           end
+
           url_params = value
           true
         else
@@ -633,6 +634,7 @@ module RestClient
     #
     def normalize_method(method)
       raise ArgumentError.new('must pass :method') unless method
+
       method.to_s.downcase
     end
 
@@ -811,6 +813,7 @@ module RestClient
         unless tempfile
           raise ArgumentError.new('tempfile is required')
         end
+
         response = RawResponse.new(tempfile, res, self, start_time)
       else
         response = Response.create(res.body, res, self, start_time)

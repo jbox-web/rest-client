@@ -185,6 +185,7 @@ module RestClient
   # The proc parameters will be the http request and the request params.
   def self.add_before_execution_proc &proc
     raise ArgumentError.new('block is required') unless proc
+
     @@before_execution_procs << proc
   end
 

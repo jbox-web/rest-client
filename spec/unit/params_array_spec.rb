@@ -25,11 +25,11 @@ describe RestClient::ParamsArray do
       }.to raise_error(IndexError)
 
       expect {
-        RestClient::ParamsArray.new([[1,2,3]])
+        RestClient::ParamsArray.new([[1, 2, 3]])
       }.to raise_error(ArgumentError)
 
       expect {
-        RestClient::ParamsArray.new([1,2,3])
+        RestClient::ParamsArray.new([1, 2, 3])
       }.to raise_error(NoMethodError)
     end
   end

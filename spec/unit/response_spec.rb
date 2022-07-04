@@ -55,7 +55,7 @@ describe RestClient::Response, :include_helpers do
       expect(response.cookies).to eq({
         "main_page" => "main_page_no_rewrite",
         "remember_me" => "",
-        "user" => "somebody"
+        "user" => "somebody",
       })
     end
 
@@ -65,7 +65,7 @@ describe RestClient::Response, :include_helpers do
       expect(response.cookies).to eq({
         "main_page" => "main_page_no_rewrite",
         "remember_me" => "",
-        "user" => "somebody"
+        "user" => "somebody",
       })
     end
   end
@@ -117,14 +117,14 @@ describe RestClient::Response, :include_helpers do
     end
 
     it "follows a redirection and keep the cookies" do
-      stub_request(:get, 'http://some/resource').to_return(:body => '', :status => 301, :headers => {'Set-Cookie' => 'Foo=Bar', 'Location' => 'http://some/new_resource', })
+      stub_request(:get, 'http://some/resource').to_return(:body => '', :status => 301, :headers => {'Set-Cookie' => 'Foo=Bar', 'Location' => 'http://some/new_resource' })
       stub_request(:get, 'http://some/new_resource').with(:headers => {'Cookie' => 'Foo=Bar'}).to_return(:body => 'Qux')
       expect(RestClient::Request.execute(:url => 'http://some/resource', :method => :get).body).to eq 'Qux'
     end
 
     it 'respects cookie domains on redirect' do
       stub_request(:get, 'http://some.example.com/').to_return(:body => '', :status => 301,
-        :headers => {'Set-Cookie' => 'Foo=Bar', 'Location' => 'http://new.example.com/', })
+        :headers => {'Set-Cookie' => 'Foo=Bar', 'Location' => 'http://new.example.com/' })
       stub_request(:get, 'http://new.example.com/').with(
         :headers => {'Cookie' => 'passedthrough=1'}).to_return(:body => 'Qux')
 
