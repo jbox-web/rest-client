@@ -1,5 +1,3 @@
-# encoding: binary
-
 require 'spec_helper'
 
 describe RestClient::Payload, :include_helpers do
