@@ -23,6 +23,10 @@ describe RestClient::Request, :include_helpers do
     RestClient.log = nil
   end
 
+  after do
+    RestClient.log = nil
+  end
+
   it "accept */* mimetype" do
     expect(@request.default_headers[:accept]).to eq '*/*'
   end
