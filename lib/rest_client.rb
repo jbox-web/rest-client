@@ -26,6 +26,13 @@ loader = Zeitwerk::Loader.for_gem
 loader.inflector.inflect 'rest-client' => 'RestClient'
 loader.ignore("#{__dir__}/restclient.rb")
 loader.ignore("#{__dir__}/rest-client.rb")
+
+# ignore windows files on linux
+unless !!File::ALT_SEPARATOR
+  loader.ignore("#{__dir__}/rest_client/windows.rb")
+  loader.ignore("#{__dir__}/rest_client/windows/root_certs.rb")
+end
+
 loader.setup
 
 # This module's static methods are the entry point for using the REST client.
