@@ -5,7 +5,3 @@ if !!File::ALT_SEPARATOR
 else
   gemspec :name => 'rest-client'
 end
-
-group :test do
-  gem 'rake'
-end
