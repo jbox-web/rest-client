@@ -593,7 +593,7 @@ module RestClient
     def parse_url_with_auth!(url)
       uri = URI.parse(url)
 
-      if uri.hostname.nil?
+      if uri.hostname.nil? || uri.hostname.empty?
         raise URI::InvalidURIError.new("bad URI(no host provided): #{url}")
       end
 
