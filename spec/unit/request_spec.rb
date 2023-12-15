@@ -1189,7 +1189,7 @@ describe RestClient::Request, :include_helpers do
 
   describe 'constructor' do
     it 'should reject valid URIs with no hostname' do
-      if RUBY_VERSION >= "3.2.0"
+      if RUBY_VERSION >= "3.2.0" || RUBY_VERSION >= "3.1.4"
         expect(URI.parse('http:///').hostname).to be_empty
       else
         expect(URI.parse('http:///').hostname).to be_nil
