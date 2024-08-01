@@ -36,4 +36,8 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency('mini_mime', '>= 0.1.1')
   s.add_runtime_dependency('netrc', '~> 0.8')
   s.add_runtime_dependency('zeitwerk')
+
+  if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new("3.4.0")
+    s.add_development_dependency "base64"
+  end
 end

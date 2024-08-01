@@ -37,6 +37,10 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency('netrc', '~> 0.8')
   s.add_runtime_dependency('zeitwerk')
 
+  if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new("3.4.0")
+    s.add_development_dependency "base64"
+  end
+
   # ffi is needed for RestClient::Windows::RootCerts
   case RUBY_PLATFORM
   when /(mingw32|mswin32|x64-mingw)/
