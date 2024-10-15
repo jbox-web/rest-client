@@ -54,7 +54,8 @@ module RestClient
     end
 
     SSLOptionList = %w{client_cert client_key ca_file ca_path cert_store
-                       version ciphers verify_callback verify_callback_warnings}
+                       version ciphers verify_callback verify_callback_warnings
+                       verify_hostname}
 
     def inspect
       "<RestClient::Request @method=#{@method.inspect}, @url=#{@url.inspect}>"
@@ -653,6 +654,7 @@ module RestClient
 
       net.verify_mode = verify_ssl
 
+      net.verify_hostname = ssl_verify_hostname unless ssl_verify_hostname.nil?
       net.cert = ssl_client_cert if ssl_client_cert
       net.key = ssl_client_key if ssl_client_key
       net.ca_file = ssl_ca_file if ssl_ca_file
